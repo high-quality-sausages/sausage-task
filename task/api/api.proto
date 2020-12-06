@@ -1,0 +1,23 @@
+syntax = "proto3";
+package xdays.task;
+option go_package = ".;api";
+
+
+service Task {
+  rpc GetTasksByUid(GetTasksByUidReq) returns (GetTasksByUidResp);
+}
+
+message GetTasksByUidReq {
+  int64 uid = 1;
+}
+
+message GetTasksByUidResp {
+  repeated TaskInfo tasks = 1;
+}
+
+message TaskInfo {
+  string task_name = 1;
+  string start_time = 2;
+  string end_time = 3;
+  string desc = 4;
+}

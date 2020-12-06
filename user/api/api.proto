@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+
+package sausage.user.v1;
+
+option go_package = ".;api";
+
+
+service User {
+    // rpc Ping(google.protobuf.Empty) returns (google.protobuf.Empty);
+    rpc GerUserProfile(GetUserProfileReq) returns (GetUserProfileResp);
+}
+
+message GetUserProfileReq {
+    int64 uid = 1;
+}
+
+message GetUserProfileResp {
+    int64 uid = 1;
+    string nick_name = 2;
+    string name = 3;
+    int64 age = 4;
+}
